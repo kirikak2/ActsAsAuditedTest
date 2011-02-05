@@ -1,0 +1,28 @@
+<h1>Listing users</h1>
+
+<p>Hi. <%= session[:user].name %></p>
+<table>
+  <tr>
+    <th>created_at</th>
+    <th>version</th>
+    <th>audited_changes</th>
+    <th>action</th>
+    <th>user_id</th>
+    <th>username</th>
+    <th></th>
+  </tr>
+
+<% @audits.each do |audit| %>
+  <tr>
+    <td><%= audit.created_at %></td>
+    <td><%= audit.version %></td>
+    <td><%= audit.audited_changes %></td>
+    <td><%= audit.action %></td>
+    <td><%= audit.user_id %></td>
+    <td><%= audit.username %></td>
+    <td><%= link_to 'Show', audit %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
